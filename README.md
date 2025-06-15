@@ -1,3 +1,9 @@
+Cellxgene provides two main ways to interact with single-cell datasets in Python:
+
+cellxgene-census package: This is the recommended way to programmatically access and query the vast, standardized single-cell data corpus hosted on CZ CELLxGENE Discover. It's built on the tiledbsoma SOMA API for efficient data slicing.
+cellxgene (local explorer): This package allows you to launch a local interactive web application to visualize and explore your own AnnData (.h5ad) files.
+Here's how to use both:
+
 # How to Download CELLxGENE Datasets:
 
 There are a few ways to download datasets from CELLxGENE:
@@ -14,15 +20,23 @@ cellxgene-census Python API:
 For programmatic access and large-scale data querying, the cellxgene-census Python package is the most powerful method. This allows you to interact with the entire CELLxGENE data corpus.
 
 Installation: You'll need to install the package:
-pip install cellxgene-census
+# pip install cellxgene-census
 
-Data Formats and Schema:
+Cellxgene provides two main ways to interact with single-cell datasets in Python:
 
-h5ad (AnnData): This is the standard format for single-cell data within the CELLxGENE ecosystem. An h5ad file typically contains:
-.X: The expression matrix (cells by genes), often stored in a sparse format to save space.
-.obs: A pandas DataFrame containing cell-level metadata (e.g., cell type, tissue, donor ID).
-.var: A pandas DataFrame containing gene-level metadata (e.g., gene symbol, Ensembl ID).
-.obsm: A dictionary for embedding coordinates (e.g., UMAP, PCA).
-Other layers for raw counts, normalized counts, etc.
-Gene Sets: CELLxGENE also supports gene set files in a Tidy CSV format, allowing users to pre-load or create gene sets for analysis within the explorer.
-CELLxGENE is an invaluable resource for single-cell research, providing standardized, high-quality data that can be easily accessed and explored.
+cellxgene-census package: This is the recommended way to programmatically access and query the vast, standardized single-cell data corpus hosted on CZ CELLxGENE Discover. It's built on the tiledbsoma SOMA API for efficient data slicing.
+cellxgene (local explorer): This package allows you to launch a local interactive web application to visualize and explore your own AnnData (.h5ad) files.
+
+# cellxgene launch my_single_cell_data.h5ad --open
+
+When you run cellxgene launch my_single_cell_data.h5ad --open in your terminal, it will open a web browser pointing to a local server displaying your single-cell data, allowing you to explore gene expression, cell types, and embeddings interactively.
+
+
+
+
+
+
+
+
+
+
